@@ -1,0 +1,52 @@
+/*class Solution {
+public:
+    bool isPalindrome(string s) {
+        int i = 0;
+        while(i<s.length()){
+           // if(ASCII(s[i]>96) && ASCII(s[i]<123)) continue;
+            if(s[i]>96 && s[i]<123 || s[i]>=0 && s[i]<=9){
+              i++;
+            } 
+            else if(s[i]>64 && s[i]<97){
+              // ASCII(s[i]) = ASCII(s[i]) + 32; 
+              s[i] = s[i] + 32;
+              i++;
+            }
+            else {
+                s.erase(i, 1);
+            }
+        }
+        string s2;
+        s2 = s;
+        reverse(s2.begin(), s2.end());
+        if(s2 == s) return true;
+        else{
+         return false;
+         }
+          }
+};*/
+class Solution {
+public:
+    bool isPalindrome(string s) {
+        int i = 0;
+
+        while (i < s.length()) {
+            if ((s[i] >= 'a' && s[i] <= 'z') ||
+                (s[i] >= '0' && s[i] <= '9')) {
+                i++;
+            }
+            else if (s[i] >= 'A' && s[i] <= 'Z') {
+                s[i] = s[i] + 32;
+                i++;
+            }
+            else {
+                s.erase(i, 1);
+            }
+        }
+
+        string s2 = s;
+        reverse(s2.begin(), s2.end());
+
+        return s2 == s;
+    }
+};
